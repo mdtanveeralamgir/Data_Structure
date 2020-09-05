@@ -3,8 +3,8 @@ package DataStructure;
 public class Main {
 
     public static void main(String[] args) {
-        BinarySearchTree bst = new BinarySearchTree(50);
-        int arr[] = {20, 30, 200, 45, 70, 10};
+        BinarySearchTree bst = new BinarySearchTree();
+        int arr[] = {20, 30, 200, 45, 200, 20, 50};
         for (int value : arr) {
             bst.addData(value);
         }
@@ -21,6 +21,10 @@ public class Main {
 
 
     */
-    bst.printBST(bst.returnRoot());
+    if(bst.removeNode(60)){
+        bst.printBST(bst.returnRoot());
+    }
+//        System.out.println(bst.findMin().getData());
+//        System.out.println(bst.findMax().getData());
     }
 }
