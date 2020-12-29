@@ -13,7 +13,7 @@ public class main {
         mh.insert(9);
         mh.insert(10);
         mh.insert(3);
-        mh.remove(10);
+        mh.remove(9);
         mh.printFinalResult();
         }
     }

@@ -40,28 +40,30 @@ public class MaxHeap {
                 this.currentSize--;
                 this.trickleDown(i);
                 result = true;
+                break;
             }
         }
         return result;
     }
 
     public void trickleDown(int currIndex){
-        if(currIndex >= this.currentSize)
+        if(currIndex == this.currentSize)
             return;
         int dataToCompare = this.heapArray[currIndex].getData();
+
+        //Retrieving left child
         if((2 * currIndex + 1) <= this.currentSize){
             int leftChild = this.heapArray[2 * currIndex + 1].getData();
             if((2 * currIndex + 2) <= this.currentSize){
-               int rightChild = this.heapArray[2 * currIndex + 2].getData();
+                int rightChild = this.heapArray[2 * currIndex + 2].getData();
                if(rightChild > leftChild && dataToCompare < rightChild){
                     this.heapArray[currIndex].setData(rightChild);
                     this.heapArray[2 * currIndex + 2].setData(dataToCompare);
                     this.trickleDown(2 * currIndex + 2);
                }
-            }
-            if(dataToCompare < leftChild){
+            } else if(dataToCompare < leftChild){
                 this.heapArray[currIndex].setData(leftChild);
-                this.heapArray[2 * currIndex + 2].setData(dataToCompare);
+                this.heapArray[2 * currIndex + 1].setData(dataToCompare);
                 this.trickleDown(2 * currIndex + 1);
             }
         }
